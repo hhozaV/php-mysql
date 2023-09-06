@@ -72,7 +72,7 @@ $recipes = [
     ],
     [
         'title' => 'Salade Romaine',
-        'recipe' => 'Prenez de la bonne salade verte !',
+        'recipe' => 'Prenez de la bonne salade verte',
         'author' => 'laurene.castor@exemple.com',
         'is_enabled' => false,
     ],
