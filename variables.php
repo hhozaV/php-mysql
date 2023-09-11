@@ -32,13 +32,13 @@ $recipes = [
     ],
     [
         'title' => 'Escalope milanaise',
-        'recipe' => 'Saisissez votre meilleure escalope !',
+        'recipe' => 'Etape 1 : Saisissez votre meilleure escalope !',
         'author' => 'mathieu.nebra@exemple.com',
         'is_enabled' => true,
     ],
     [
         'title' => 'Salade Romaine',
-        'recipe' => 'Prenez de la bonne salade verte',
+        'recipe' => 'Etape 1 : Prenez de la bonne salade verte',
         'author' => 'laurene.castor@exemple.com',
         'is_enabled' => false,
     ],
