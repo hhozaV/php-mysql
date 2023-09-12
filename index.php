@@ -1,79 +1,41 @@
+<!-- index.php -->
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8" />
-        <title>Mon site de recettes</title>
-    </head>
- 
-    <body>
- 
-    <!-- L'en-tête -->
-    
-    <header>
-        <!-- Le menu -->
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site de recettes - Page d'accueil</title>
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" 
+        rel="stylesheet"
+    >
+</head>
+<body class="d-flex flex-column min-vh-100">
+    <div class="container">
+
+    <?php include_once('header.php'); ?>
+        <h1>Site de recettes</h1>
+
+        <!-- inclusion des variables et fonctions -->
+        <?php
+            include_once('variables.php');
+            include_once('functions.php');
+        ?>
+
+        <!-- inclusion de l'entête du site -->
         <?php include_once('header.php'); ?>
-        <style>
-    body {
-        font-family: Verdana, sans-serif;
-    }
+        
+        <?php foreach(getRecipes($recipes) as $recipe) : ?>
+            <article>
+                <h3><?php echo $recipe['title']; ?></h3>
+                <div><?php echo $recipe['recipe']; ?></div>
+                <i><?php echo displayAuthor($recipe['author'], $users); ?></i>
+            </article>
+        <?php endforeach ?>
+    </div>
 
-    ul {
-        list-style-type: none;
-        padding: 0;
-    }
-
-    li {
-        margin: 10px 0;
-        padding: 10px;
-    }
-
-    li.disabled {
-        opacity: 0.5;
-    }
-</style>
-       
-    </header>
-    
-    <!-- Le corps -->
-    
-    <div id="corps">
-        <h1>Mon site de recettes</h1>
-
-        <!-- Inclusion des variables et fonctions -->
-        <?php include_once('functions.php'); ?>
-        <?php include_once('variables.php'); ?>
-
-        <!-- Inclusion de l'entête du site -->
-        <?php include_once('header.php'); ?>
-                
-            <p>
-                Bienvenue sur mon site de recettes !
-            </p>
-
-            <ul>
-                <?php foreach ($validRecipes as $recipe): ?>
-                    <?php $authorName = displayAuthor($recipe['author'], $users); ?>
-                    <?php if ($authorName !== null): ?>
-                        <li>
-                            <h2><?php echo $recipe['title']; ?></h2>
-                            <p><?php echo $recipe['recipe']; ?></p>
-                            <p><?php echo $authorName; ?></p>
-                        </li>
-                    <?php else: ?>
-                        <li>
-                            <h2><?php echo $recipe['title']; ?></h2>
-                            <p><?php echo $recipe['recipe']; ?></p>
-                            <p><?php echo 'Auteur Inconnu'; ?></p>
-                        </li>
-                    
-                    <?php endif; ?>
-                <?php endforeach; ?>
-            </ul>
-        </div>
-    
-    <!-- Le pied de page -->
+    <!-- inclusion du bas de page du site -->
     <?php include_once('footer.php'); ?>
-
-    
-    </body>
+</body>
 </html>

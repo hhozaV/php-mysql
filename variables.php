@@ -1,4 +1,6 @@
-<?php 
+<?php
+// variables.php
+
 $users = [
     [
         'full_name' => 'Mickaël Andrieu',
@@ -20,29 +22,26 @@ $users = [
 $recipes = [
     [
         'title' => 'Cassoulet',
-        'recipe' => 'Etape 1 : Munissez vous de vos meilleurs flageolets !',
+        'recipe' => '',
         'author' => 'mickael.andrieu@exemple.com',
         'is_enabled' => true,
     ],
     [
         'title' => 'Couscous',
-        'recipe' => 'Etape 1 : Sortez votre meilleure semoule !',
+        'recipe' => '',
         'author' => 'mickael.andrieu@exemple.com',
         'is_enabled' => false,
     ],
     [
         'title' => 'Escalope milanaise',
-        'recipe' => 'Etape 1 : Saisissez votre meilleure escalope !',
+        'recipe' => '',
         'author' => 'mathieu.nebra@exemple.com',
         'is_enabled' => true,
     ],
     [
         'title' => 'Salade Romaine',
-        'recipe' => 'Etape 1 : Prenez de la bonne salade verte',
+        'recipe' => '',
         'author' => 'laurene.castor@exemple.com',
         'is_enabled' => false,
     ],
 ];
-
-$validRecipes = getRecipes($recipes);
-?>

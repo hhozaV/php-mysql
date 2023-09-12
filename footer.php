@@ -1,27 +1,8 @@
-<!DOCTYPE html>
-
-<html>
-
-<head>
-
-    <meta charset="UTF-8">
-
-    <title>Site de recettes</title>
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
-
-</head>
-
-<body>
-
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-
-        <div class="container">
-
-            <a class="navbar-brand" href="index.php">Copyright Martin Boudras, tous droits réservés</a>
-
-            </button>
-
-        </div>
-
-    </nav>
+<!-- footer.php -->
+<!-- footer.php -->
+<footer class="bg-light text-center text-lg-start mt-auto">
+  <div class="text-center p-3">
+    © 2021 Copyright:
+    <a class="text-dark">Alexandre Brabant</a>
+  </div>
+</footer>
