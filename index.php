@@ -1,4 +1,6 @@
 <!-- index.php -->
+
+<?php session_start(); // $_SESSION ?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -29,7 +31,7 @@
             <!-- inclusion de l'entête du site -->
             <?php include_once('header.php'); ?>
 
-            <?php if(isset($loggedUser)): ?>
+            <?php if(isset($_SESSION['LOGGED_USER'])): ?>
                 <?php foreach(getrecipes($recipes, $limit=20) as $recipe) : ?>
                     <article>
                         <h3><?php echo $recipe['title']; ?></h3>
