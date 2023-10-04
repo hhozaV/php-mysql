@@ -23,6 +23,7 @@
             <?php
                 include_once('variables.php');
                 include_once('functions.php');
+                include_once('mysql.php');
             ?>
 
             <!--          Inclusion          du          formulaire          de          connexion          -->
@@ -32,14 +33,22 @@
             <?php include_once('header.php'); ?>
 
             <?php if(isset($_SESSION['LOGGED_USER'])): ?>
-                <?php foreach(getrecipes($recipes, $limit=20) as $recipe) : ?>
-                    <article>
-                        <h3><?php echo $recipe['title']; ?></h3>
-                        <div><?php echo $recipe['recipe']; ?></div>
-                        <i><?php echo displayAuthor($recipe['author'], $users); ?></i>
-                    </article>
-                <?php endforeach ?>
-            <?php endif; ?>
+                <!-- On se connecte à MySQL -->
+                <?php include_once('mysql.php'); ?>
+                <!-- Si tout va bien, on peut continuer -->
+                <?php
+                    // On récupère tout le contenu de la table recipes
+                    $sqlQuery = 'SELECT * FROM recipes';
+                    $recipesStatement = $db->prepare($sqlQuery);
+                    $recipesStatement->execute();
+                    $recipes = $recipesStatement->fetchAll();
+                ?>
+                <!-- On affiche chaque recette une à une -->
+                <?php foreach ($recipes as $recipe) : ?>
+                    <p><?php echo $recipe['title']; ?> </p>
+                    <p><?php echo $recipe['author']; ?> </p>
+                <?php endforeach; ?>
+                <?php endif; ?>
         </div>
 
         <!-- inclusion du bas de page du site -->
