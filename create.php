@@ -1,5 +1,3 @@
-<!-- index.php -->
-
 <?php session_start(); // $_SESSION ?>
 <!DOCTYPE html>
 <html>
@@ -32,27 +30,24 @@
             <!-- inclusion de l'entête du site -->
             <?php include_once('header.php'); ?>
 
-            <?php if(isset($_SESSION['LOGGED_USER'])): ?>
-                <!-- On se connecte à MySQL -->
-                <?php include_once('mysql.php'); ?>
-                <!-- Si tout va bien, on peut continuer -->
-                <?php
-                    // On récupère tout le contenu de la table recipes
-                    $sqlQuery = 'SELECT * FROM recipes';
-                    $recipesStatement = $db->prepare($sqlQuery);
-                    $recipesStatement->execute();
-                    $recipes = $recipesStatement->fetchAll();
-                ?>
-                <!-- On affiche chaque recette une à une -->
-                <?php foreach ($recipes as $recipe) : ?>
-                    <p><?php echo $recipe['title']; ?> </p>
-                    <p><?php echo $recipe['recipe']; ?> </p>
-                    <p><?php echo $recipe['author']; ?> </p>
-                <?php endforeach; ?>
-                <?php endif; ?>
-        </div>
+            <h1>Ajouter une recette</h1>
+            <form action="post_create.php" method="POST">
+                <div class="mb-3">
+                    <label for="title" class="form-label">Titre de la recette</label>
+                    <input type="text" class="form-control" id="title" name="title" aria-describedby="title" required />
+                    <div id="title-help" class="form-text">Choisissez un titre percutant !</div>
+                </div>
+                <div class="mb-3">
+                    <label for="recipe" class="form-label">Description de la recette</label>
+                    <textarea class="form-control" id="recipe" name="recipe" placeholder="Seulement du contenu vous appartenant ou libre de droit" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Envoyer</button>
+            </form>
 
-        <!-- inclusion du bas de page du site -->
-        <?php include_once('footer.php'); ?>
-    </body>
+
+<br />
+</div>
+
+<?php include_once('footer.php'); ?>
+</body>
 </html>

@@ -13,6 +13,9 @@
         <li class="nav-item">
           <a class="nav-link" href="contact.php">Contact</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="create.php">Proposer</a>
+        </li>
       </ul>
     </div>
   </div>
